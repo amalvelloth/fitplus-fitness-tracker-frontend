@@ -1,5 +1,5 @@
 import React from 'react'
-import joggingSvg from '../assets/jogging-bro.svg'
+import joggingSvg from '../assets/jogging-bro.svg' 
 
 function Home() {
     return (
