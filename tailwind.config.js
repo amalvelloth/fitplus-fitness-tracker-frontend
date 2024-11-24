@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        "max-xsm": { max: "425" },
+        "max-xsm": { max: "425px" },
         "max-sm": { max: "640px" },
         "max-md": { max: "768px" },
         "max-lg": { max: "1024px" },
