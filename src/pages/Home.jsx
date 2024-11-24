@@ -8,7 +8,7 @@ function Home() {
                 <div className="flex col h-screen w-[60%] max-md:w-[70%] justify-center items-center bg-white">
 
                     <div className="flex-col p-8 max-md:p-2">
-                        <img src={joggingSvg} className='max-w-[500px]' alt="" />
+                        <img src={joggingSvg} className='max-w-[500px]' alt="" /> 
                         <div className="text">
                             <h1 className='text-black font-extrabold text-5xl max-md:text-3xl max-md:text-[calc(40px+0.5vw)]'>"MAKE YOUR FITNESS YOUR DAILY GOAL"</h1>
                         </div>
