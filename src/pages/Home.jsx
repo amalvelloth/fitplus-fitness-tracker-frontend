@@ -56,7 +56,7 @@ function Home() {
                         isOpen={isModalOpen}
                         onRequestClose={closeModal}
                         contentLabel="Login Modal"
-                        className="modal-content w-full max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
+                        className="modal-content w-full max-sm:w-4/5 max-w-md p-6 bg-white rounded-2xl transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
                         overlayClassName="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
                     >
 
