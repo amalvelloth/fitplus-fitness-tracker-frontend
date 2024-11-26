@@ -7,12 +7,12 @@ function Dashboard() {
       <section className="flex">
         <DesktopMenu />
         <div className="h-screen w-full relative flex items-center bg-[#27282C]">
-          <div className="flex w-full h-full items-center justify-start px-8">
+          <div className="flex items-center justify-start px-8 max-sm:px-4">
             <div className="greetings">
-              <h1 className="text-white text-2xl">
-                Good morning <span className="font-extrabold text-4xl">AMAL V</span>
+              <h1 className="text-white text-2xl max-sm:text-lg">
+                Good morning <span className="font-extrabold text-4xl max-sm:text-2xl">AMAL V</span>
               </h1>
-              <h2 className="text-white text-4xl font-semibold mt-2">Welcome back! 🎉</h2>
+              <h2 className="text-white text-4xl max-sm:text-3xl font-semibold mt-2">Welcome back! 🎉</h2>
             </div>
             <div className="avatar bg-white w-24 h-24 rounded-full overflow-hidden">
               <img
