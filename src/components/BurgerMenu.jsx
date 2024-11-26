@@ -12,7 +12,7 @@ function BurgerMenu() {
         /* From Uiverse.io by Shubh0408 */
         <>
             <label
-                className="w-10 h-8 absolute z-50 left-3 cursor-pointer flex items-center justify-center"
+                className="w-10 h-8 lg:hidden absolute z-50 left-3 cursor-pointer flex items-center justify-center"
                 onClick={toggleMenu}
                 aria-expanded={isOpen}
                 aria-label="Toggle Navigation"
@@ -35,8 +35,9 @@ function BurgerMenu() {
             </label>
 
 
+            {/* Menu */}
             <div
-                className={`absolute h-screen flex items-center p-6 top-0 left-0  bg-[#BAFF00] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`absolute lg:hidden h-screen flex items-center p-6 top-0 -left-0  bg-[#BAFF00] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <ul className='flex flex-col items-start justify-center h-full space-y-8 px-6'>
@@ -85,7 +86,8 @@ function BurgerMenu() {
                             activeClassName="underline"
                         >
                             Sign Out
-                        </NavLink>                    </li>
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </>
