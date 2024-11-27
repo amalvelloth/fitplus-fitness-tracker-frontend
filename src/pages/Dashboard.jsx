@@ -6,7 +6,7 @@ function Dashboard() {
     <>
       <section className="flex">
         <DesktopMenu />
-        <div className="h-screen w-full relative flex  bg-[#27282C]">
+        <div className="h-screen w-full relative flex  bg-neutral-900">
           <div className="flex items-start pt-24 justify-start px-8 max-sm:px-4">
             <div className="greetings">
               <h1 className="text-white text-2xl max-sm:text-lg">
