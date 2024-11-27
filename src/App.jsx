@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import TaskControl from './pages/Taskcontrol';
+import TaskControl from './pages/TaskControl';
 import Dashboard from './pages/Dashboard';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import './App.css';
