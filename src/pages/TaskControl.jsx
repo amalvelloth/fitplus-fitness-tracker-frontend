@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
+import DesktopMenu from "../components/DesktopMenu";
 
 export const TaskControl = () => {
   return (
-    <div className="h-screen w-full pt-24 bg-neutral-900 text-neutral-50">
-      <Board />
-    </div>
+    <section className="flex">
+      <DesktopMenu />
+      <div className="h-screen w-full pt-24 bg-neutral-900 text-neutral-50">
+        <Board />
+      </div>
+    </section>
   );
 };
 
@@ -163,9 +167,8 @@ const Column = ({ title, headingColor, cards, column, setCards }) => {
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`h-full w-full transition-colors ${
-          active ? "bg-neutral-800/50" : "bg-neutral-800/0"
-        }`}
+        className={`h-full w-full transition-colors ${active ? "bg-neutral-800/50" : "bg-neutral-800/0"
+          }`}
       >
         {filteredCards.map((c) => {
           return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
@@ -229,11 +232,10 @@ const BurnBarrel = ({ setCards }) => {
       onDrop={handleDragEnd}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      className={`mt-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${
-        active
-          ? "border-red-800 bg-red-800/20 text-red-500"
-          : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
-      }`}
+      className={`mt-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${active
+        ? "border-red-800 bg-red-800/20 text-red-500"
+        : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
+        }`}
     >
       {active ? <FaFire className="animate-bounce" /> : <FiTrash />}
     </div>
