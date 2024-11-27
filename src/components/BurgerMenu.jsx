@@ -37,59 +37,70 @@ function BurgerMenu() {
 
             {/* Menu */}
             <div
-                className={`absolute lg:hidden h-screen flex items-center p-6 top-0 -left-0  bg-[#BAFF00] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`absolute lg:hidden h-screen flex items-center top-0 -left-0  bg-[#BAFF00] z-10 transition-transform duration-500 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
-                <ul className='flex flex-col items-start justify-center h-full space-y-8 px-6'>
-                    <li>
-                        <NavLink
-                            to="/dashboard"
-                            className="text-lg font-bold text-black"
-                            onClick={() => setIsOpen(false)}
-                            activeClassName="underline"
-                        >
+                <ul className='flex flex-col items-start justify-center h-full '>
+
+                    <NavLink
+                        to="/dashboard"
+                        className="w-full text-lg font-bold text-black"
+                        onClick={() => setIsOpen(false)}
+                        activeClassName="underline"
+                    >
+                        <li className='w-full py-4 px-12'>
                             Dashboard
-                        </NavLink>                    </li>
-                    <li>
-                        <NavLink
-                            to="/taskcontrol"
-                            className="text-lg font-bold text-black"
-                            onClick={() => setIsOpen(false)}
-                            activeClassName="underline"
-                        >
+                        </li>
+                    </NavLink>
+
+
+                    <NavLink
+                        to="/taskcontrol"
+                        className="w-full text-lg font-bold text-black"
+                        onClick={() => setIsOpen(false)}
+                        activeClassName="underline"
+                    >
+                        <li className='w-full py-4 px-12'>
                             Task Control
-                        </NavLink>                    </li>
-                    <li>
-                        <NavLink
-                            to="/trainingprograms"
-                            className="text-lg font-bold text-black"
-                            onClick={() => setIsOpen(false)}
-                            activeClassName="underline"
-                        >
+                        </li>
+                    </NavLink>
+
+                    <NavLink
+                        to="/trainingprograms"
+                        className="w-full text-lg font-bold text-black"
+                        onClick={() => setIsOpen(false)}
+                        activeClassName="underline"
+                    >
+                        <li className='w-full py-4 px-12'>
                             Training Programs
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/settings"
-                            className="text-lg font-bold text-black"
-                            onClick={() => setIsOpen(false)}
-                            activeClassName="underline"
-                        >
+                        </li>
+                    </NavLink>
+
+
+                    <NavLink
+                        to="/settings"
+                        className="w-full text-lg font-bold text-black"
+                        onClick={() => setIsOpen(false)}
+                        activeClassName="underline"
+                    >
+                        <li className='w-full py-4 px-12'>
                             Settings
-                        </NavLink>                    </li>
-                    <li>
-                        <NavLink
-                            to="/signout"
-                            className="text-lg font-bold text-black"
-                            onClick={() => setIsOpen(false)}
-                            activeClassName="underline"
-                        >
+                        </li>
+                    </NavLink>
+
+                    <NavLink
+                        to="/signout"
+                        className="w-full text-lg font-bold text-black"
+                        onClick={() => setIsOpen(false)}
+                        activeClassName="underline"
+                    >
+                        <li className='w-full py-4 px-12'>
                             Sign Out
-                        </NavLink>
-                    </li>
+                        </li>
+                    </NavLink>
+
                 </ul>
-            </div>
+            </div >
         </>
 
     );

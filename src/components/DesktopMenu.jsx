@@ -9,34 +9,39 @@ function DesktopMenu() {
         >
             <ul className='flex flex-col items-start justify-center h-full '>
 
-                <li className='w-full py-4 px-12  hover:bg-[#27282C] text-black hover:text-white'>
-                    <NavLink to="/dashboard" className="text-lg font-bold" activeClassName="underline">
+                <NavLink to="/dashboard" className="w-full text-lg font-bold" activeClassName="underline">
+                    <li className='w-full py-4 px-12  hover:bg-neutral-900 text-black hover:text-white'>
                         Dashboard
-                    </NavLink>
-                </li>
-                <li className='w-full py-4 px-12  hover:bg-[#27282C] text-black hover:text-white'>
-                    <NavLink to="/taskcontrol" className="text-lg font-bold" activeClassName="underline">
+                    </li>
+                </NavLink>
+
+                <NavLink to="/taskcontrol" className="w-full text-lg font-bold" activeClassName="underline">
+                    <li className='w-full py-4 px-12  hover:bg-neutral-900 text-black hover:text-white'>
                         Task Control
-                    </NavLink>
-                </li>
-                <li className='w-full py-4 px-12  hover:bg-[#27282C] text-black hover:text-white'>
-                    <NavLink to="/trainingprograms" className="text-lg font-bold" activeClassName="underline">
+                    </li>
+                </NavLink>
+
+                <NavLink to="/trainingprograms" className="w-full text-lg font-bold" activeClassName="underline">
+                    <li className='w-full py-4 px-12  hover:bg-neutral-900 text-black hover:text-white'>
                         Training Programs
-                    </NavLink>
-                </li>
-                <li className='w-full py-4 px-12  hover:bg-[#27282C] text-black hover:text-white'>
-                    <NavLink to="/settings" className="text-lg font-bold" activeClassName="underline">
+                    </li>
+                </NavLink>
+
+                <NavLink to="/settings" className="w-full text-lg font-bold" activeClassName="underline">
+                    <li className='w-full py-4 px-12  hover:bg-neutral-900 text-black hover:text-white'>
+
                         Settings
-                    </NavLink>
-                </li>
-                <li className='w-full py-4 px-12 hover:bg-[#27282C] text-black hover:text-white'>
-                    <NavLink to="/signout" className="text-lg font-bold" activeClassName="underline">
+                    </li>
+                </NavLink>
+
+                <NavLink to="/signout" className="w-full text-lg font-bold" activeClassName="underline">
+                    <li className='w-full py-4 px-12 hover:bg-neutral-900 text-black hover:text-white'>
                         Sign Out
-                    </NavLink>
-                </li>
+                    </li>
+                </NavLink>
 
             </ul>
-        </div>
+        </div >
     )
 }
 
