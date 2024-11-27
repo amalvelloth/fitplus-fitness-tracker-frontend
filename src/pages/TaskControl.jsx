@@ -3,7 +3,7 @@ import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
 
-export const TaskControl = () => {
+export const Taskcontrol = () => {
   return (
     <div className="h-screen w-full pt-24 bg-neutral-900 text-neutral-50">
       <Board />
@@ -330,4 +330,4 @@ const DEFAULT_CARDS = [
   },
 ];
 
-export default TaskControl;
+export default Taskcontrol;
