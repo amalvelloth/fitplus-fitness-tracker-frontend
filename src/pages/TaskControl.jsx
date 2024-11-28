@@ -8,7 +8,7 @@ export const TaskControl = () => {
   return (
     <section className="flex">
       <DesktopMenu />
-      <div className="h-screen w-full pt-24 bg-neutral-900 text-neutral-50">
+      <div className="h-screen w-full pt-24 max-lg:pt-16 bg-neutral-900 text-neutral-50">
         <Board />
       </div>
     </section>
@@ -19,7 +19,7 @@ const Board = () => {
   const [cards, setCards] = useState(DEFAULT_CARDS);
 
   return (
-    <div className="flex flex-wrap h-full w-full max-xl:overflow-scroll gap-3 p-12">
+    <div className="flex flex-wrap max-lg:justify-center h-full w-full max-xl:overflow-scroll gap-3 p-12">
       <Column
         title="Backlog"
         column="backlog"

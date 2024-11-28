@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { SlGraph } from "react-icons/sl";
+import { FaTasks } from "react-icons/fa";
+import { CgGym } from "react-icons/cg";
+import { IoMdSettings } from "react-icons/io";
+import { PiSignOutBold } from "react-icons/pi";
+
 
 function BurgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +54,9 @@ function BurgerMenu() {
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
-                        <li className='w-full py-4 px-12'>
+                        <li className='w-full py-4 px-6 flex items-center'>
+                        <SlGraph className='me-8' />
+
                             Dashboard
                         </li>
                     </NavLink>
@@ -60,7 +68,8 @@ function BurgerMenu() {
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
-                        <li className='w-full py-4 px-12'>
+                        <li className='w-full py-4 px-6 flex items-center'>
+                            <FaTasks className='me-8' />
                             Task Control
                         </li>
                     </NavLink>
@@ -71,7 +80,8 @@ function BurgerMenu() {
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
-                        <li className='w-full py-4 px-12'>
+                        <li className='w-full py-4 px-6 flex items-center'>
+                            <CgGym className='me-8' />
                             Training Programs
                         </li>
                     </NavLink>
@@ -83,7 +93,8 @@ function BurgerMenu() {
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
-                        <li className='w-full py-4 px-12'>
+                        <li className='w-full py-4 px-6 flex items-center'>
+                            <IoMdSettings className='me-8' />
                             Settings
                         </li>
                     </NavLink>
@@ -94,7 +105,8 @@ function BurgerMenu() {
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
-                        <li className='w-full py-4 px-12'>
+                        <li className='w-full py-4 px-6 flex items-center'>
+                            <PiSignOutBold className='me-8' />
                             Sign Out
                         </li>
                     </NavLink>
