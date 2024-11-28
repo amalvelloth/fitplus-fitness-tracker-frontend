@@ -10,7 +10,7 @@ function Settings() {
         <div className="flex items-center w-full justify-around mx-10">
           <h1 className='text-white text-4xl max-sm:text-base'>Enable / Disable Dark Mode</h1>
           <label
-            class="relative inline-block h-8 w-14 max-sm:h-6 max-sm:w-12 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-black has-[:checked]:border-[0.5px]"
+            class="relative inline-block h-8 w-14 max-sm:h-6 max-sm:w-12 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-black has-[:checked]:border-[0.5px] border-opacity-40 border-white"
           >
             <input class="peer sr-only" id="AcceptConditions" type="checkbox" />
             <span
