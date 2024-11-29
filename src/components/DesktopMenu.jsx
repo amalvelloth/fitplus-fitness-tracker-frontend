@@ -17,7 +17,7 @@ function DesktopMenu() {
             <ul className='flex flex-col items-start justify-center h-full '>
 
                 <NavLink to="/dashboard" className="w-full text-lg font-bold" activeClassName="underline">
-                    <li className='w-full py-4 px-10 flex items-center hover:bg-neutral-900 text-black hover:text-white'>
+                    <li className='w-full py-4 px-12 flex items-center hover:bg-neutral-900 text-black hover:text-white'>
                         <VscGraphLine className='me-8'/>
                         Dashboard
                     </li>
