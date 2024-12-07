@@ -2,10 +2,18 @@ import React, { useState } from 'react';
 import JoggingPNG from '../assets/jogging-bro.png';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+
 
 Modal.setAppElement('#root');
 
 function Home() {
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+
+
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     const navigate = useNavigate();
@@ -16,17 +24,81 @@ function Home() {
     const openRegisterModal = () => setIsRegisterModalOpen(true);
     const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
-    const handleLoginSubmit = (e) => {
+    
+    // const handleLoginSubmit = async (e) => {
+    //     e.preventDefault(); 
+
+    //     try {
+    //         const response = await axios.post('http://localhost:3001/login', {
+    //             email,
+    //             password,
+    //         });
+
+    //         console.log("Login successful:", response.data);
+
+    //         navigate('/dashboard');
+    //         closeLoginModal();
+    //         setEmail('');
+    //         setPassword('');
+    //     } catch (error) {
+    //         console.error("Login failed:", error.response?.data || error.message);
+    //     }
+    // };
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        navigate('/dashboard');
-        closeLoginModal();
+    
+        // Check if the form inputs are not empty
+        if (!email || !password) {
+            alert("Please fill in both email and password fields.");
+            return;
+        }
+    
+        try {
+            const response = await axios.post('http://localhost:3001/login', { email, password });
+    
+            if (response.data === "Success") {
+                console.log("Login successful:", response.data);
+                navigate('/dashboard');
+                closeLoginModal();
+                setEmail('');
+                setPassword('');
+            } else {
+                console.error("Login failed:", response.data);
+                alert("Incorrect email or password.");
+            }
+        } catch (error) {
+            console.error("Server error:", error.response?.data || error.message);
+            alert("Server error, please try again later.");
+        }
+    };
+    
+    
+    
+    
+
+
+    const handleRegisterSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3001/register', {
+                name,
+                email,
+                password
+            });
+
+            console.log("Registration successful:", response.data);
+            navigate('/');
+            closeRegisterModal();
+
+            setName('');
+            setEmail('');
+            setPassword('');
+        } catch (error) {
+            console.error("Registration failed:", error.response?.data || error.message);
+        }
     };
 
-    const handleRegisterSubmit = (e) => {
-        e.preventDefault();
-        navigate('/welcome');
-        closeRegisterModal();
-    };
+
 
     return (
         <>
@@ -79,8 +151,8 @@ function Home() {
                         Close
                     </button>
                     <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4 mt-4">
-                        <input type="email" placeholder="Email" className="p-2 border border-gray-300 rounded" />
-                        <input type="password" placeholder="Password" className="p-2 border border-gray-300 rounded" />
+                        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border border-gray-300 rounded" />
+                        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="p-2 border border-gray-300 rounded" />
                         <button type="submit" className="py-2 bg-[#BAFF00] text-black rounded">Login</button>
                     </form>
                 </Modal>
@@ -101,9 +173,9 @@ function Home() {
                         Close
                     </button>
                     <form onSubmit={handleRegisterSubmit} className="flex flex-col gap-4 mt-4">
-                        <input type="text" placeholder="Name" className="p-2 border border-gray-300 rounded" />
-                        <input type="email" placeholder="Email" className="p-2 border border-gray-300 rounded" />
-                        <input type="password" placeholder="Password" className="p-2 border border-gray-300 rounded" />
+                        <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} className="p-2 border border-gray-300 rounded" />
+                        <input type="email" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border border-gray-300 rounded" />
+                        <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} className="p-2 border border-gray-300 rounded" />
                         <button type="submit" className="py-2 bg-[#BAFF00] text-black rounded">Sign Up</button>
                     </form>
                 </Modal>

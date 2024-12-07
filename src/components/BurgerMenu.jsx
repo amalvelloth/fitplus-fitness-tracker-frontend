@@ -15,7 +15,6 @@ function BurgerMenu() {
     };
 
     return (
-        /* From Uiverse.io by Shubh0408 */
         <>
             <label
                 className="w-10 h-8 lg:hidden absolute z-50 left-3 cursor-pointer flex items-center justify-center"
