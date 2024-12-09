@@ -25,25 +25,6 @@ function Home() {
     const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
     
-    // const handleLoginSubmit = async (e) => {
-    //     e.preventDefault(); 
-
-    //     try {
-    //         const response = await axios.post('http://localhost:3001/login', {
-    //             email,
-    //             password,
-    //         });
-
-    //         console.log("Login successful:", response.data);
-
-    //         navigate('/dashboard');
-    //         closeLoginModal();
-    //         setEmail('');
-    //         setPassword('');
-    //     } catch (error) {
-    //         console.error("Login failed:", error.response?.data || error.message);
-    //     }
-    // };
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
     
