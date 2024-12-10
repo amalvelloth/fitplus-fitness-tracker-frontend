@@ -32,7 +32,9 @@ function Home() {
 
         // Check if the form inputs are not empty
         if (!email || !password) {
-            toast.info("Please fill in both email and password fields.");
+            toast.info("Please fill in both email and password fields.", {
+                position: "top-center"
+            });
             return;
         }
 
