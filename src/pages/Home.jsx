@@ -3,6 +3,8 @@ import JoggingPNG from '../assets/jogging-bro.png';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 Modal.setAppElement('#root');
@@ -24,38 +26,46 @@ function Home() {
     const openRegisterModal = () => setIsRegisterModalOpen(true);
     const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
-    
+
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-    
+
         // Check if the form inputs are not empty
         if (!email || !password) {
-            alert("Please fill in both email and password fields.");
+            toast.info("Please fill in both email and password fields.");
             return;
         }
-    
+
         try {
             const response = await axios.post('http://localhost:3001/login', { email, password });
-    
+
             if (response.data === "Success") {
                 console.log("Login successful:", response.data);
+                toast.success("Login successful!", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                });
                 navigate('/dashboard');
                 closeLoginModal();
                 setEmail('');
                 setPassword('');
             } else {
                 console.error("Login failed:", response.data);
-                alert("Incorrect email or password.");
+                toast.error("Incorrect email or password.");
             }
         } catch (error) {
-            console.error("Server error:", error.response?.data || error.message);
-            alert("Server error, please try again later.");
+            console.error("Login error:", error.response?.data || error.message);
+            toast.error("An error occurred during login. Please try again.", {
+                position: "top-center"
+            })
         }
     };
-    
-    
-    
-    
+
+
+
+
 
 
     const handleRegisterSubmit = async (e) => {
@@ -161,6 +171,7 @@ function Home() {
                     </form>
                 </Modal>
             </section>
+            <ToastContainer autoClose={2000} theme='colored' />
         </>
     );
 }
