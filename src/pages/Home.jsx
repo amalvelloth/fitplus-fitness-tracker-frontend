@@ -72,11 +72,30 @@ function Home() {
 
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();
+
+        if (!name || !email || !password) {
+            toast.info("Please fill out all fields before registering!", {
+                position: "top-center",
+                autoClose: 3000, 
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+            return;
+        }
+
         try {
+            
             const response = await axios.post('http://localhost:3001/register', {
                 name,
                 email,
-                password
+                password,
+            });
+
+            toast.success("Registration Successful!", {
+                position: "top-center",
+                autoClose: 3000,
             });
 
             console.log("Registration successful:", response.data);
@@ -87,9 +106,14 @@ function Home() {
             setEmail('');
             setPassword('');
         } catch (error) {
-            console.error("Registration failed:", error.response?.data || error.message);
+            toast.error(`Registration failed or user already exist!: ${error.response?.data || error.message}`, {
+                position: "top-center",
+                autoClose: 3000,
+            });
+            console.error("Registration failed: or user already exist!", error.response?.data || error.message);
         }
     };
+
 
 
 
