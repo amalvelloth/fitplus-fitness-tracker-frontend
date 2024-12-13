@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DesktopMenu from '../components/DesktopMenu';
 
 function Dashboard() {
+  
+  const getGreeting = () => {
+    const hours = new Date().getHours();
+    if (hours < 12) return 'Good morning';
+    if (hours < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
+
+  const greeting = getGreeting();
+
+
   return (
     <>
       <section className="flex">
@@ -10,7 +21,7 @@ function Dashboard() {
           <div className="flex items-start pt-24 justify-start px-8 max-sm:px-4">
             <div className="greetings">
               <h1 className="text-white text-2xl max-sm:text-lg">
-                Good morning <span className="font-extrabold text-4xl max-sm:text-2xl">AMAL V</span>
+                {greeting}{''} <span className="font-extrabold text-4xl max-sm:text-2xl">AMAL V</span>
               </h1>
               <h2 className="text-white text-4xl max-sm:text-3xl font-semibold mt-2">Welcome back! 🎉</h2>
             </div>

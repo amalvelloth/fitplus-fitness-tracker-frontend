@@ -1,7 +1,7 @@
 import React from 'react'
 import DesktopMenu from '../components/DesktopMenu'
 
-function TrainingPrograms() {
+function WorkoutPrograms() {
   return (
     <section className='flex'>
       <DesktopMenu />
@@ -15,4 +15,4 @@ function TrainingPrograms() {
   )
 }
 
-export default TrainingPrograms
+export default WorkoutPrograms

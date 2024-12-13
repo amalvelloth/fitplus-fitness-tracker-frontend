@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import './App.css';
 import Home from './pages/Home';
-import TrainingPrograms from './pages/TrainingPrograms';
+import WorkoutPrograms from './pages/WorkoutPrograms';
 import Settings from './pages/Settings';
 import SignOut from './pages/SignOut';
 
@@ -21,7 +21,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/taskcontrol' element={<TaskControl/>} />
-              <Route path='/trainingprograms' element={<TrainingPrograms/>} />
+              <Route path='/workoutprograms' element={<WorkoutPrograms/>} />
               <Route path='/settings' element={<Settings/>} />
               <Route path='/signout' element={<SignOut/>} />
             </Routes>

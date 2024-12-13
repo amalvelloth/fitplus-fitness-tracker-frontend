@@ -74,14 +74,14 @@ function BurgerMenu() {
                     </NavLink>
 
                     <NavLink
-                        to="/trainingprograms"
+                        to="/workoutprograms"
                         className="w-full text-lg font-bold text-black"
                         onClick={() => setIsOpen(false)}
                         activeClassName="underline"
                     >
                         <li className='w-full py-4 px-6 flex items-center'>
                             <CgGym className='me-8' />
-                            Training Programs
+                            Workout Programs
                         </li>
                     </NavLink>
 

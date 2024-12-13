@@ -30,10 +30,10 @@ function DesktopMenu() {
                     </li>
                 </NavLink>
 
-                <NavLink to="/trainingprograms" className="w-full text-lg font-bold" activeClassName="underline">
+                <NavLink to="/workoutprograms" className="w-full text-lg font-bold" activeClassName="underline">
                     <li className='w-full py-4 px-12 flex items-center hover:bg-neutral-900 text-black hover:text-white'>
                         <CgGym className='me-8'/>
-                        Training Programs
+                        Workout Programs
                     </li>
                 </NavLink>
 
