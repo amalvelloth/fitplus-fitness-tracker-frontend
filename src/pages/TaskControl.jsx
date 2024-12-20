@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { FaFire } from "react-icons/fa";
@@ -16,42 +16,66 @@ export const TaskControl = () => {
 };
 
 const Board = () => {
-  const DEFAULT_CARDS = [];
 
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/cards');
+        const data = await response.json();
+        setCards(data);
+      } catch (error) {
+        console.error('Error fetching cards:', error);
+      }
+    };
+
+    fetchCards();
+  }, []);
+
+  const saveData = async () => {
+    try {
+      console.log('Sending cards:', cards);
+
+      // Check if cards exist before making the request
+      if (cards.length > 0) {
+        const response = await fetch('http://localhost:3001/cards', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ cards }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error(`HTTP error! Status: ${response.status}. Error: ${errorData.message}`);
+          throw new Error(`HTTP error! Status: ${response.status}. Error: ${errorData.message}`);
+        }
+
+        console.log('Data saved successfully', await response.json());
+      } else {
+        console.warn('No cards to save.');
+      }
+    } catch (error) {
+      console.error('Error saving cards:', error);
+    }
+  };
+
+
+
 
 
   return (
     <div className="flex flex-wrap text-2xl max-sm:text-xl max-lg:justify-center h-full w-full max-xl:overflow-scroll gap-3 p-12">
-      <Column
-        title="Backlog"
-        column="backlog"
-        headingColor="text-red-400"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="TODO"
-        column="todo"
-        headingColor="text-yellow-200"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="In progress"
-        column="doing"
-        headingColor="text-blue-200"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="Complete"
-        column="done"
-        headingColor="text-emerald-200"
-        cards={cards}
-        setCards={setCards}
-      />
+      <Column title="Backlog" column="backlog" headingColor="text-red-400" cards={cards} setCards={setCards} />
+      <Column title="TODO" column="todo" headingColor="text-yellow-200" cards={cards} setCards={setCards} />
+      <Column title="In progress" column="doing" headingColor="text-blue-200" cards={cards} setCards={setCards} />
+      <Column title="Complete" column="done" headingColor="text-emerald-200" cards={cards} setCards={setCards} />
       <BurnBarrel setCards={setCards} />
+      <button onClick={saveData} className="fixed bottom-8 right-8 p-4 bg-blue-500 text-white rounded-full">
+        <FiPlus size={24} />
+      </button>
     </div>
   );
 };
@@ -231,6 +255,7 @@ const BurnBarrel = ({ setCards }) => {
   };
 
   return (
+
     <div
       onDrop={handleDragEnd}
       onDragOver={handleDragOver}

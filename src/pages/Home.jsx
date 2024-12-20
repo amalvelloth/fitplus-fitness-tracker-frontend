@@ -49,7 +49,7 @@ function Home() {
                     closeOnClick: true,
                     pauseOnHover: true,
                 });
-                navigate('/dashboard');
+                setTimeout(() => navigate('/dashboard'), 2000)
                 closeLoginModal();
                 setEmail('');
                 setPassword('');
@@ -197,7 +197,7 @@ function Home() {
                     </form>
                 </Modal>
             </section>
-            <ToastContainer autoClose={2000} theme='colored' />
+            <ToastContainer position="top-center" autoClose={false } closeOnClick  theme='colored' />
         </>
     );
 }

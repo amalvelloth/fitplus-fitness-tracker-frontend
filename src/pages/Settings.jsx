@@ -3,6 +3,7 @@ import DesktopMenu from '../components/DesktopMenu'
 
 function Settings() {
   return (
+    
     <section className='flex'>
       <DesktopMenu />
       <div className='h-screen w-full flex-col items-center justify-center bg-neutral-900'>
